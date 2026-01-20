@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../models/product.dart';
 import '../viewmodels/product_selection_viewmodel.dart';
 
+/// Pantalla para seleccionar productos del menú.
+/// Permite añadir y quitar cantidades de cada producto disponible.
 class ProductSelectionScreen extends StatefulWidget {
   final Map<Product, int> initialProducts;
 
@@ -27,11 +29,13 @@ class _ProductSelectionScreenState extends State<ProductSelectionScreen> {
     super.dispose();
   }
 
+  /// Confirma la selección actual y devuelve el mapa de productos seleccionados a la pantalla anterior.
   void _confirm() {
     final selectedProducts = _viewModel.getSelectedProducts();
     Navigator.pop(context, selectedProducts);
   }
 
+  /// Cancela la selección y vuelve a la pantalla anterior sin cambios.
   void _cancel() {
     Navigator.pop(context);
   }

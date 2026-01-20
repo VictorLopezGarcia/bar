@@ -4,6 +4,8 @@ import '../models/product.dart';
 import '../viewmodels/create_order_viewmodel.dart';
 import 'product_selection_screen.dart';
 
+/// Pantalla para la creación de un nuevo pedido.
+/// Permite ingresar el número de mesa y seleccionar los productos.
 class CreateOrderScreen extends StatefulWidget {
   const CreateOrderScreen({super.key, required OrdersViewModel orderViewModel})
     : _orderViewModel = orderViewModel;
@@ -39,6 +41,8 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
     super.dispose();
   }
 
+  /// Navega a la pantalla de selección de productos.
+  /// Espera el resultado (productos seleccionados) y actualiza el viewModel.
   Future<void> _navigateToSelectProducts() async {
     final result = await Navigator.push<Map<Product, int>>(
       context,
@@ -56,6 +60,8 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
     }
   }
 
+  /// Navega a la pantalla de resumen del pedido.
+  /// Valida que el pedido tenga datos correctos antes de navegar.
   void _navigateToSummary() {
     if (!_viewModel.validate()) {
       _showValidationError();
@@ -67,6 +73,8 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
     Navigator.pushNamed(context, '/resumen', arguments: order);
   }
 
+  /// Guarda el pedido final y regresa a la pantalla anterior con el nuevo pedido.
+  /// Antes valida que los datos sean correctos y que la mesa no tenga ya un pedido activo.
   void _saveOrder() {
     if (!_viewModel.validate()) {
       _showValidationError();
@@ -87,6 +95,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
     Navigator.pop(context);
   }
 
+  /// Muestra un mensaje de error tipo SnackBar con validaciones específicas.
   void _showValidationError() {
     String message = '';
 
@@ -133,6 +142,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                // Tarjeta con información básica de la mesa
                 Card(
                   color: Theme.of(context).colorScheme.primary,
                   child: Padding(
@@ -167,6 +177,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                 ),
                 const SizedBox(height: 16),
 
+                // Tarjeta con lista y resumen de productos seleccionados
                 Card(
                   color: Theme.of(context).colorScheme.primary,
                   child: Padding(
@@ -237,6 +248,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                             ),
                           )
                         else
+                          // Lista de productos seleccionados
                           Column(
                             children: [
                               ..._viewModel.selectedProducts.entries.map(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/order.dart';
 
+/// Widget visual para representar un pedido individual en una lista.
+/// Muestra información clave como la mesa, los productos y el costo total.
 class OrderCard extends StatelessWidget {
   final Order order;
 
@@ -75,6 +77,7 @@ class OrderCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
+            // Lista generada dinámicamente de los productos en el pedido
             ...order.products.entries.map((item) {
               final prod = item.key;
               final qty = item.value;

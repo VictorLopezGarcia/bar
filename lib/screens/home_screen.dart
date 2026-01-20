@@ -4,6 +4,8 @@ import '../viewmodels/orders_viewmodel.dart';
 import '../widgets/order_card.dart';
 import 'create_order_screen.dart';
 
+/// Pantalla principal de la aplicación.
+/// Muestra la lista de todos los pedidos activos y permite iniciar el proceso de creación de uno nuevo.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -26,6 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
+  /// Navega a la pantalla de crear pedido y espera el resultado.
+  /// Si se crea un pedido exitosamente, se añade a la lista de pedidos activos.
   Future<void> _navigateToCreateOrder() async {
     final result = await Navigator.push<Order>(
       context,

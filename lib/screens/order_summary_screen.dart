@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/order.dart';
 
+/// Pantalla que muestra el resumen detallado de un pedido.
 class OrderSummaryScreen extends StatelessWidget {
   const OrderSummaryScreen({super.key});
 

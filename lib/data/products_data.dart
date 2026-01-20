@@ -1,6 +1,7 @@
 import 'package:bar/models/order.dart';
 import 'package:bar/models/product.dart';
 
+/// Clase de utilidad que proporciona datos de prueba estáticos para la aplicación.
 class ProductsData {
   static final List<Product> availableProducts = [
     Product(id: '1', name: 'Risotto de Trufa Negra', price: 28.50),
@@ -17,6 +18,7 @@ class ProductsData {
     Product(id: '12', name: 'Whisky Single Malt 18 años', price: 25.00),
   ];
 
+  // Pedidos iniciales pre-cargados para fines de demostración.
   static final List<Order> initialOrders = [
     Order(
       tableNumber: '1',
