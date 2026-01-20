@@ -137,6 +137,7 @@ class _ProductSelectionScreenState extends State<ProductSelectionScreen> {
                                     Icons.add_circle,
                                     color: Colors.white.withOpacity(0.8),
                                   ),
+                                  tooltip: 'Aumentar cantidad',
                                   onPressed: () {
                                     _viewModel.incrementQuantity(product.id);
                                   },
@@ -146,6 +147,7 @@ class _ProductSelectionScreenState extends State<ProductSelectionScreen> {
                                     Icons.remove_circle,
                                     color: Colors.white.withOpacity(0.8),
                                   ),
+                                  tooltip: 'Disminuir cantidad',
                                   onPressed: () {
                                     _viewModel.decrementQuantity(product.id);
                                   },

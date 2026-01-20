@@ -42,6 +42,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
     if (result != null) {
       _viewModel.registerNewOrder(result);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Pedido creado correctamente para la Mesa ${result.tableNumber}',
+          ),
+          backgroundColor: Colors.green[700],
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          duration: const Duration(seconds: 2),
+        ),
+      );
     }
   }
 
@@ -104,6 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         elevation: 4,
         icon: const Icon(Icons.add, color: Colors.white),
+        tooltip: 'Crear un nuevo pedido',
         label: Text(
           'Nuevo Pedido',
           style: TextStyle(
